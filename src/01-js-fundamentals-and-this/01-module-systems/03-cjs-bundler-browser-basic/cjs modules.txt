@@ -1,4 +1,4 @@
 
 
 They won't really work with the browser without a bundler.
-So to test them out, we're using a bundler called rollup.
+So to test them out, we're using a bundler called .

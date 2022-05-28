@@ -1,5 +1,11 @@
 
 
+0.0.3 -
+
+	- rollup uninstalled. browser cjs cdn is doing the actual cjs work.
+
+
+
 0.0.2 -
 
 	- some modules set up and working, pending further testing.

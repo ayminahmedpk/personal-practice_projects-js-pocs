@@ -3,7 +3,8 @@
 const firstHello  = require('./modules/firstHello.js').firstHello;
 const secondHello = require('./modules/secondHello.js').secondHello;
 
-const moreHellos    = require('./modules/third fourth hello.js');
+// const moreHellos    = require('./modules/third fourth hello.js');
+const moreHellos    = require('./modules/third.js');
 const thirdHello    = moreHellos.thirdHello;
 const {fourthHello} = moreHellos;
 
