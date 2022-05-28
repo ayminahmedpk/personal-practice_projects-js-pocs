@@ -1,0 +1,4 @@
+
+npm init -y
+npm instal --save-dev jest
+in package.json, in scripts, "test": "jest --coverage"

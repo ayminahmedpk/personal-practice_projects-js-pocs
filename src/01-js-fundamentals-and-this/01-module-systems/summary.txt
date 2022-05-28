@@ -1,0 +1,24 @@
+RMP - Revealing Module pattern
+CJS - CommonJS & Node JS Implementation
+AMD - Asynchronous Module Definition
+ES6 Modules
+
+
+
+RMP:
+Before module systems existed, Revealing Module Pattern (RMP) was being used to
+mimic module like functionality.
+
+Since even old JS always had function level scope, functions were used to
+encapsulate some private properties with public setter/getter, and return
+the setter/getter - so the private property would remain in memory and exist
+till the program lived.
+
+Multiple modules could be defined in a script, but they could not be loaded
+asynchronously, nor be imported programmatically.
+
+
+
+
+CJS:
+Alternative developed that used the keywords 'require' and 'export'.

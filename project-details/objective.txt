@@ -1,0 +1,8 @@
+POCs of js.
+
+All of them tested with JEST.
+
+All of the code clean and fairly well commented.
+
+And tailored visual models of complex stuff or structures or patterns for
+easier memorization.
