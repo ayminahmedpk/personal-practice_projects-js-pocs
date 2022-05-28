@@ -1,5 +1,10 @@
 
 
+0.0.2 -
+
+	- some modules set up and working, pending further testing.
+
+
 0.0.1 - init
 
 	- npm init

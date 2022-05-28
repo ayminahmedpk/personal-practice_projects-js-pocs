@@ -1,0 +1,6 @@
+
+xx Testing compatiability between modules
+
+-> Getting multiple imports / exports
+
+-> Exporting functions, counting executions

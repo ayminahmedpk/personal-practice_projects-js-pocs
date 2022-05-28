@@ -1,0 +1,28 @@
+can export one item as
+	module.exports = oneItem;
+
+can import one item as
+	const oneItem = require('./oneItem.js');
+
+
+
+can export multiple items as
+	module.exports = {
+		itemOne,
+		itemTwo,
+		itemThree,
+		itemFour,
+	};
+
+
+can import multiple items as
+	const {itemOne, itemTwo, itemThree, itemFour} = require('./multipleItems.js');
+
+Basically, multiple items are exported as the object. So we could also do
+	const {oneItem} = require('./multipleItems.js');
+OR
+	const oneItem = require('./multipleItems.js').itemOne;
+OR
+	const items = require('./multipleItems.js');
+	const oneItem = items.itemOne;
+...and so on.

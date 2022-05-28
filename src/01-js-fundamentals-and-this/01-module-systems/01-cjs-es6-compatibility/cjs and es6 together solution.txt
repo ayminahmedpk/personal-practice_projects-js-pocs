@@ -1,0 +1,30 @@
+
+Issue is that ES6 scripts are async, CJS are not.
+
+So synchronous will have to be made to import ES6 as a promise, and then there
+may be further issues too.
+
+So the simple solution is, define a module, write it and save it in an ES6 file
+named my-module.js.
+
+Then simply copy the entire file contents into my-module-cjs.js, and comment
+out the 'export' keywords and any final export default line. Then use cjs to
+export this instead.
+
+Finally, create a my-module-cjs.js file, which will require from the -cjs file
+and will be used for testing.
+
+
+In other words, you'll have to manually copy either from cjs file to es6 file,
+or from es6 file to cjs file.
+
+It is better that you keep the testing in watch mode, and work on the cjs file
+for test-based assurance. Then at the end, you copy the stuff inside cjs file
+and appropriately put it into the es6 file and see if it works as expected on
+the browser.
+
+So for each module, we will have:
+
+src/modules/my-module/my-module.js
+src/modules/my-module/my-module-cjs.js
+src/modules/my-module/my-module-cjs.test.js

@@ -1,0 +1,82 @@
+old:
+    [
+        Functional pattern (assigning to global object)
+        
+        IIFE pattern (assigning to a named object or container)
+        
+        RMP (below) - returning, so could be namespaced by caller. start here.
+    ]
+
+
+
+RMP - Revealing Module pattern (preceeded by IIFE, preceeded by functional)
+CJS - CommonJS & Node JS Implementation
+AMD - Asynchronous Module Definition
+UMD - Universal Module Definition
+ESM - ECMA Script Modules / ES6 Modules
+
+
+
+
+Old:
+
+    First: Used function level scoping (available due to var) to create function
+    level encapsulation. The function would then assign the public properties to
+    the global object by name.
+
+    IIFE Pattern: Same as the previous, but instead of running a function, it
+    was immediately executed (Immediately Invoked Function Pattern). Almost Same
+    as above, except that instead of polluting the global object, the pattern
+    would name and assign public items to one parent container.
+
+    
+    RMP: Before module systems existed, Revealing Module Pattern (RMP) was being
+    used to mimic module like functionality.
+
+    Instead of assigning by naming a variable, IIFEs would 'return' public
+    properties. The calling functions could then invoke and namespace these
+    functions and their properties how they wished.
+
+    Multiple modules could be defined in a script, but they could not be loaded
+    asynchronously, nor be imported programmatically.
+
+
+
+
+
+
+CJS:
+
+    Alternative standard developed that used the keywords 'require' and
+    'exports'. 'exports' is an object where any function put into it will get
+    exported. 'require' is a function used to import functions from another
+    module.
+
+    These, however, are also syncrhonous (by default, anyway).
+    
+    More importantly, the browser doesn't support these by itself. So we need a
+    module bundler to bundle (build) these intelligently into one long
+    codestream (or one file) if we want it to run on the browser.
+
+
+
+
+Node JS Implementaion of CJS:
+    Instead of using 'exports', it uses 'modules.exports'
+
+    The parameter passed to the require checks for the module name inside the
+    node_modules directory.
+
+    These are also synchronous in nature.
+
+
+
+
+AMD - ?
+UMD - ?
+
+
+
+
+ESM:
+    Uses 'import' and 'export' keywords. Asynchronous. Supported by browsers.
