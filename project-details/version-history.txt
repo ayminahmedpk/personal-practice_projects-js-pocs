@@ -1,24 +1,19 @@
 
-0.0.4 -
-
-	- modules (RMP, CJS) seem to be done.
-
-
-0.0.3 -
-
-	- rollup uninstalled. browser cjs cdn is doing the actual cjs work.
+0.0.4:
+  - modules (Node CJS and CJS) seem to be done.
 
 
-
-0.0.2 -
-
-	- some modules set up and working, pending further testing.
+0.0.3:
+  - rollup uninstalled. browser cjs cdn is doing the actual cjs work.
 
 
-0.0.1 - init
+0.0.2:
+  - some modules set up and working, pending further testing.
 
-	- npm init
-	- got jest working completely
-	- set up initial directory structure
-	- set up .gitignore and repo
-	- initial commit
+
+0.0.1 - init:
+  - npm init
+  - got jest working completely
+  - set up initial directory structure
+  - set up .gitignore and repo
+  - initial commit
