@@ -1,0 +1,31 @@
+
+Accessing individual property:
+
+  Can access individual object property by
+    object.myDotProperty;
+    object['myBracketProperty'];
+
+  The brackets can only accept a string, so we must pass a string, not just
+  myBracketProperty (hence the quotes).
+
+  If we just passed myBracketProperty, JS would try to resolve myBracketProperty
+  to a string, and crash with an error at that point.
+
+
+
+
+Listing properties:
+
+  When listing object properties, some methods list only enumerable ones, some
+  list only those not-inherited, and none list all without considering
+  inheritance or enumerability.
+
+  excerpt:
+    "After seeing Mozilla's JS documentation specifically say: "no single
+    mechanism iterates all of an object's properties; the various mechanisms
+    each include different subsets of properties."
+  (https://stackoverflow.com/questions/8024149/is-it-possible-to-get-the-non-enumerable-inherited-property-names-of-an-object)
+
+  Object.keys                = string array, own/inherited keys, enumerable
+  Object.getOwnPropertyNames = string array, own keys, enumerable/non-enumerable
+  (key in myObject)          = iterates over own/inherited enumerable keys

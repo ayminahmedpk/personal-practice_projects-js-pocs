@@ -1,4 +1,9 @@
 
+0.0.5:
+  - objects basic crud
+  - objects basic listing
+
+
 0.0.4:
   - modules (Node CJS and CJS) seem to be done.
 
