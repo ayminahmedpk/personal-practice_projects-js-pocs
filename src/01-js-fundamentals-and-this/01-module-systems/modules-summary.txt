@@ -1,82 +1,41 @@
-old:
-    [
-        Functional pattern (assigning to global object)
-        
-        IIFE pattern (assigning to a named object or container)
-        
-        RMP (below) - returning, so could be namespaced by caller. start here.
-    ]
 
 
+IIFE / RMP - Immediately Invoked Function Expression / Revealing Module Pattern:
 
-RMP - Revealing Module pattern (preceeded by IIFE, preceeded by functional)
-CJS - CommonJS & Node JS Implementation
-AMD - Asynchronous Module Definition
-UMD - Universal Module Definition
-ESM - ECMA Script Modules / ES6 Modules
-
-
+	Uses functions scope to encapsulate private fields and provide working
+	  structures. Could be directly namespaced to global / parent containers
+	  (IIFE), or simply returned and namespaced by caller (RMP).
+	IIFE / RMP are executed and a new instance is returned at every call.
 
 
-Old:
+CJS - Common JS
 
-    First: Used function level scoping (available due to var) to create function
-    level encapsulation. The function would then assign the public properties to
-    the global object by name.
-
-    IIFE Pattern: Same as the previous, but instead of running a function, it
-    was immediately executed (Immediately Invoked Function Pattern). Almost Same
-    as above, except that instead of polluting the global object, the pattern
-    would name and assign public items to one parent container.
-
-    
-    RMP: Before module systems existed, Revealing Module Pattern (RMP) was being
-    used to mimic module like functionality.
-
-    Instead of assigning by naming a variable, IIFEs would 'return' public
-    properties. The calling functions could then invoke and namespace these
-    functions and their properties how they wished.
-
-    Multiple modules could be defined in a script, but they could not be loaded
-    asynchronously, nor be imported programmatically.
+	A more organized module system.
+	Uses "exports.myItem = myItem " and "require('...')" statements.
+	Can import / export multiple items per file.
+	Can be imported multiple times, but only executed and instantiated at
+	  the first import (require statement). Thereafter, cached and referenced.
+	Synchronous, so not compatible with ESM.
+	Not supported by browsers by default.
 
 
+Node CJS implementation
+
+	Implementation of CJS, therefore fairly similar.
+	Uses "module.exports" rather than "exports".
+	Some syntactical differences, but overall operation similar.
 
 
+AMD - skipped.
+UMD - skipped.
 
 
-CJS:
+ESM - ECMA Modules / ES6 Modules
 
-    Alternative standard developed that used the keywords 'require' and
-    'exports'. 'exports' is an object where any function put into it will get
-    exported. 'require' is a function used to import functions from another
-    module.
-
-    These, however, are also syncrhonous (by default, anyway).
-    
-    More importantly, the browser doesn't support these by itself. So we need a
-    module bundler to bundle (build) these intelligently into one long
-    codestream (or one file) if we want it to run on the browser.
-
-
-
-
-Node JS Implementaion of CJS:
-    Instead of using 'exports', it uses 'modules.exports'
-
-    The parameter passed to the require checks for the module name inside the
-    node_modules directory.
-
-    These are also synchronous in nature.
-
-
-
-
-AMD - ?
-UMD - ?
-
-
-
-
-ESM:
-    Uses 'import' and 'export' keywords. Asynchronous. Supported by browsers.
+	Moden module system.
+	Imports are not instantiated automatically - they are simply scanned and
+	  a dynamic interface is created for them.
+	Instantiated when actually needed by the code or program.
+	Asynchronous, not compatible with CJS.
+	Supported by browsers (at least most of them).
+	<script> tag needs type="module", though.

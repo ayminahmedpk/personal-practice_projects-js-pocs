@@ -1,4 +1,8 @@
 
+0.0.4 -
+
+	- modules (RMP, CJS) seem to be done.
+
 
 0.0.3 -
 
