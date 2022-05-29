@@ -1,4 +1,8 @@
 
+0.0.6:
+  - added multi-word property name in basic-crud and basic-listing tests
+
+
 0.0.5:
   - objects basic crud
   - objects basic listing

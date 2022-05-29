@@ -16,15 +16,16 @@ describe blocks are also executed sequentially", () => {
     beforeAll(() => {
       testObj.firstProperty = "first";
       testObj.secondProperty = "second";
+      testObj['third property'] = "third";
     });
     test("Object.keys returns all non-inherited enumerable keys", () => {
       expect(Object.keys(testObj)).
-      toEqual(["firstProperty", "secondProperty"]);
+      toEqual(["firstProperty", "secondProperty", "third property"]);
     });
     test("Object.getOwnPropertyNames returns all non-inherited keys regardless\
     of enumerability", () => {
       expect(Object.getOwnPropertyNames(testObj)).
-      toEqual([ "firstProperty", "secondProperty",]);
+      toEqual([ "firstProperty", "secondProperty", "third property"]);
     });
     test("key..in loops over enumerable, even if inherited", () => {
       expect(
@@ -35,7 +36,7 @@ describe blocks are also executed sequentially", () => {
           }
           return keys;
         })()
-      ).toEqual(["firstProperty", "secondProperty"]);
+      ).toEqual(["firstProperty", "secondProperty", "third property"]);
     });
   });
 
@@ -45,11 +46,12 @@ describe blocks are also executed sequentially", () => {
       delete testObj.firstProperty;
     });
     test("Object.keys returns all non-inherited enumerable keys", () => {
-      expect(Object.keys(testObj)).toEqual(["secondProperty"]);
+      expect(Object.keys(testObj)).toEqual(["secondProperty", "third property"]);
     });
     test("Object.getOwnPropertyNames returns all non-inherited keys regardless\
     of enumerability", () => {
-      expect(Object.getOwnPropertyNames(testObj)).toEqual(["secondProperty"]);
+      expect(Object.getOwnPropertyNames(testObj)).
+      toEqual(["secondProperty", "third property"]);
     });
     test("key..in loops over enumerable, even if inherited", () => {
       expect(
@@ -60,7 +62,7 @@ describe blocks are also executed sequentially", () => {
           }
           return keys;
         })()
-      ).toEqual(["secondProperty"]);
+      ).toEqual(["secondProperty", "third property"]);
     });
   });
 
