@@ -20,17 +20,15 @@
     * The before and after statements are collected and applied, RESPECTING the
       describe block scope.
         
-        Before all outside any describe block is executed before any tests, and
-        is executed before the describe block's Before all.
-
-        Before each outside any describe block is executed before each test, and
-        is executed before the describe block's before each.
+        Before all outside any describe block (if first test in file)
+        Before all in this describe block (if first test in describe block)
+        Before each outside any describe block
+        Before each in this describe block
 
                           <test takes place here>
             
-        After each outside any describe block is executed after each test, and
-        is executed after the describe block's after each.
-        
-        After  all outside any describe block is executed after  all tests, and
-        is executed after the describe block's after all.
+        After each in this describe block
+        After each outside any describe block
+        After all in this describe block (if last test in describe block)
+        After all outside any describe block (if last test in file)
 */
