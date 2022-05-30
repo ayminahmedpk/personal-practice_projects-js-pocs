@@ -1,4 +1,8 @@
 
+0.0.7:
+  - setters/getters - both normal & smart (wrapper).
+
+
 0.0.6:
   - added multi-word property name in basic-crud and basic-listing tests
 

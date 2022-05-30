@@ -1,0 +1,28 @@
+
+
+Accessors:
+  The 'get' and 'set' keywords used to declare a function are the main
+  mechanism. From outside the object, it looks like a normal property is being
+  accessed (no () are added at the end, but the function runs regardless).
+
+  There are two types of accessors: Normal accessors, and Smart (wrapper) accessors.
+
+
+
+Normal accessors:
+  Functions that retrieve / set values in realtime that don't actually exist;
+  but are computed in realtime from other existing properties.
+  
+  Eg: Computing and returning 'fullName' from 'name' and 'surname' properties.
+
+
+
+
+
+Smart accessors:
+  Functions that control or tailor access to (wrap over) existing properties.
+  Conventionally, accessors are named 'name' and property is named '_name', to
+  denote it's private, internal nature.
+  
+  Eg: Setter function 'name' not allowing write access to '_name' if received
+  string is less than 4 characters long.
