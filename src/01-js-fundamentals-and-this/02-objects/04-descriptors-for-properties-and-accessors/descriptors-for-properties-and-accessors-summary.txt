@@ -1,0 +1,21 @@
+
+
+Four type of property descriptors:
+  - value
+  - writable
+  - enumberable
+  - configurable
+, all self-explanatory.
+
+Value is value of property.
+The remaining three are always boolean (true or false).
+All 3 are true by default.
+
+Configurable can be made to false, essentially locking the item's descriptors.
+After configurable false, can not delete item.
+After configurable false, can still change item's value.
+After configurable false, can still change writable to false.
+However, after configurable->false and writable->false, can't delete or edit it.
+
+Enumerable false hides the property from listing methods that do consider the
+enumerable descriptor, like Object.keys(myObj) or the the for..in loop.

@@ -1,4 +1,8 @@
 
+0.0.8:
+  - Object property descriptors, and modifying them
+
+
 0.0.7:
   - setters/getters - both normal & smart (wrapper).
 
