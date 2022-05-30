@@ -1,6 +1,6 @@
 POCs of js.
 
-All of them tested with JEST.
+All of them tested with JEST (so you're learn JEST alongside).
 
 All of the code clean and fairly well commented.
 

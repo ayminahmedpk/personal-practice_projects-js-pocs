@@ -1,4 +1,8 @@
 
+0.0.9:
+  - Jest statement/test execution order investigated.
+
+
 0.0.8:
   - Object property descriptors, and modifying them
 
