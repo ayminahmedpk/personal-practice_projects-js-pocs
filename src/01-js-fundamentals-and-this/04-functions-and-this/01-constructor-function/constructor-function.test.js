@@ -39,15 +39,15 @@ function FlexibleFunction(name) {
 }
 
 
-test('Constructor function returns a new object' , () => {
+test('Constructor function implicitly returns a new object' , () => {
   expect(new ConstructorFunction()).toEqual(standardObject);
 });
 
-test(`Constructor function returning an object ignores other 'this' statements`, () => {
+test(`Constructor function explicitly returning an object ignores other 'this' statements`, () => {
   expect(new ConstructorFunctionReturningObject()).toEqual(specialObject);
 })
 
-test('Constructor function returning a primitive ignores the return statement', () => {
+test('Constructor function explicitly returning a primitive ignores the explicit return statement', () => {
   expect(new ConstructorFunctionReturningPrimitive()).toEqual(standardObject);
 })
 
