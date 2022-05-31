@@ -5,6 +5,10 @@ Accessors:
   mechanism. From outside the object, it looks like a normal property is being
   accessed (no () are added at the end, but the function runs regardless).
 
+  (Seems we can't use arrow functions for accessors. Perhaps this is because
+   they don't have a concept of 'this', hence can't get it with the dot
+   notation.)
+
   There are two types of accessors: Normal accessors, and Smart (wrapper) accessors.
 
 
