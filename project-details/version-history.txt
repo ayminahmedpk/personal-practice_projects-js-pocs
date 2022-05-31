@@ -1,4 +1,8 @@
 
+0.0.11:
+  - Array methods (map, filter, reduce)
+
+
 0.0.10:
   - Accessor property descriptors, creating accessors on existing objects
 

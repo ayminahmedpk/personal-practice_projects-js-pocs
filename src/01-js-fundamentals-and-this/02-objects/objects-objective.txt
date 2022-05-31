@@ -1,40 +1,8 @@
 
 
-Focus on:
-  - Syntax
-  - Property descriptors (flags)
-  - Hiding properties using flags, viewing hidden properties
-  - Copying (cloining), with and/or without hidden properties
-  - Accessors
+Listing again, but this time, focusing on:
 
-Leave 'this' for its own specific section.
-Which will have objects as well as functions.
+- Property enumerability
+- Property ownership (own or inherited)
 
-Leave 'new' and constructor functio for prototype based inheritance.
-
-
-
-Syntax:
-  - CREATE object
-  - List object properties
-  - Modify Object
-    - ADD    properties
-    - READ   properties
-    - QUERY  properties
-    - DELETE properties
-  - CLONE object
-  
-Accessors:
-  - Data properties
-  - Accessor properties
-
-READ and MODIFY property descriptors:
-  - Normal descriptors vs Accessor descriptors
-  - Changing descriptors
-    - Making non-writable
-    - Hiding
-    - Making non-configurable
-  - Then repeat the syntax tests above
-  - Then repeat accessor tests above
-
-  
+- Listing all properties (including enumerable/non-enumerable + own/inherited)

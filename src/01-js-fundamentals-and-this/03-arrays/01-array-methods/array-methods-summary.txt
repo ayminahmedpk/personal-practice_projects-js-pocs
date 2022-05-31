@@ -1,0 +1,29 @@
+
+
+
+Map, Filter & Reduce:
+
+Note: Neither of these three modify the original array.
+
+  Map:
+  // arr.map(function(item, index, array) { ... });
+  Returns a new array, values are results of transformation on original array's
+  values.
+  The given function should return the value to be pushed into the new array.
+
+  Filter:
+  // arr.filter(function(item, index, array) { ... });
+  Returns a new array, which includes only some values of the original array,
+  filtered based on the given function.
+  The given function should return either true or false, which determines
+  whether the current element is pushed into the new array or not.
+
+  // arr.reduce(function(accumulator, item, index, array) {
+  //   // ...
+  // }, [initial]);
+  Persistenly remembers a value (the accumulator), and modifies it based on the
+  given function while traversing the array. At the end, returns the
+  accumulator.
+  Can optionally accept a value to use as the initial value for the accumulator.
+  The given reducer function must return the accumulator, which will be carried
+  forward to the next iteration.
