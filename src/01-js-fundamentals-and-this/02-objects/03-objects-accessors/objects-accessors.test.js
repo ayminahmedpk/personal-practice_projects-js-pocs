@@ -22,9 +22,9 @@ describe('Describe block to nest other describe blocks, for sequential testing',
     expect(simpleAccessors.fullName).toBe('John Smith');
   });});
 
-  describe('',() => {
+  describe('Writing using simple accessor',() => {
     beforeAll(() => { simpleAccessors.fullName = "John Doe"; })
-    test('Using a simple accessor to write', () => {
+    test('Confirming after writing using simple accessor', () => {
       expect([simpleAccessors.name, simpleAccessors.surname]).
       toEqual(['John', 'Doe']);
     });
@@ -41,7 +41,7 @@ describe('Describe block to nest other describe blocks, for sequential testing',
     });
   });
 
-  describe('', () => {
+  describe('Attempting invalid write attempt', () => {
     beforeAll(() => {smartAccessors.name = 'Joe';});
     test('Checking if smart accessor blocked invalid write attempt', () => {
       expect((smartAccessors._name)).toBe('Michael');

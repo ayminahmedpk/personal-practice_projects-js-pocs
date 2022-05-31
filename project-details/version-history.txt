@@ -1,4 +1,7 @@
 
+0.0.10:
+  - Accessor property descriptors, creating accessors on existing objects
+
 
 0.0.9:
   - Jest statement/test execution order investigated.

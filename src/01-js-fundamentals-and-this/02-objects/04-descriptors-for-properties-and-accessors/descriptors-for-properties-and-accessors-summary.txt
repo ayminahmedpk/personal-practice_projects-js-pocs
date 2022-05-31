@@ -1,5 +1,4 @@
 
-
 Four type of property descriptors:
   - value
   - writable
@@ -19,3 +18,28 @@ However, after configurable->false and writable->false, can't delete or edit it.
 
 Enumerable false hides the property from listing methods that do consider the
 enumerable descriptor, like Object.keys(myObj) or the the for..in loop.
+
+
+
+
+Four types of accessor descriptors:
+  - get (the get function)
+  - set (the set function)
+  - enumerable (as for property descriptors)
+  - configurable (as for property descriptors)
+
+To create a new setter/getter, you simply use the static Object.defineProperty
+method, and pass the relevant descriptors. Pass at least a get or set function
+as a descriptor to turn the property into an accessor. The defaults for the rest
+are:
+  get          = null
+  set          = null
+  enumerable   = false
+  configurable = false
+
+
+
+
+A property can be either be a normal (data property) by and have the value
+descriptor, or it can be an accessor property and have the get/set descriptors -
+but it can't be both at the same time.

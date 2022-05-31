@@ -7,6 +7,12 @@ const normalObj = {
   fourth : "Make this non-configurable"
 };
 
+const accessorObj = {
+  name: 'John',
+  surname: 'Smith',
+}
+
+
 describe('Hierarchy of describe boxes for sequential test execution', () => {
 
   // Reading all properties' descriptors at once
@@ -60,6 +66,21 @@ describe('Hierarchy of describe boxes for sequential test execution', () => {
       expect(() => {Object.defineProperty(normalObj, 'fourth', {enumerable: false})})
       .toThrow(TypeError);
     });
+  })
+
+
+  describe('Creating an accessor through descriptors', () => {
+    beforeAll( () => {
+      Object.defineProperty(accessorObj, 'fullName', {
+        get() { return `${this.name} ${this.surname}`; },
+        set(fullName) {[this.name, this.surname] = fullName.split(" ");},
+        configurable: true,
+        enumerable: true,
+      });
+    });
+    test('Newly created accessor should work as expected', () => {
+      expect(accessorObj.fullName).toBe('John Smith');
+    })
   })
 
 })

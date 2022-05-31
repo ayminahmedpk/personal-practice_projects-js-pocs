@@ -26,3 +26,17 @@ Smart accessors:
   
   Eg: Setter function 'name' not allowing write access to '_name' if received
   string is less than 4 characters long.
+
+
+
+  Usage:
+    Be mindful never to read as accessorName() or write as accessorName(a,b,c).
+    The whole point of accessors is to use the same syntax as properties.
+    Use 'myObj.accessorName' to read or 'myObj.accessorName = `abc`' to write.
+
+    Also, make sure the accessor name doesn't include a verb. Remember, it's
+    supposed to look like and be treated as a property, not a function.
+
+    To create a new accessor / modify an accessor on an existing object, use
+    property descriptors (look at the
+    descriptors-for-properties-and-accessors-summary.txt file).
