@@ -1,0 +1,51 @@
+Any function can be used as a constructor function by calling it after the
+'new' keyword (except arrow function, because they have no 'this').
+
+The default pattern is to populate the constructor function, and call it thus:
+
+  sampleConstructor() {
+    this.variable1 = 'value1';
+    this.variable2 = 'value2';
+    this.method1   = function() { ... }
+  }
+  const newObject = new sampleConstructor();
+
+Then, the new keyword creates a new object, assigns 'this' to that object, lets
+it get populated and returned it.
+
+In essence, the new keyword adds these two implicit lines to the above
+constructor function:
+
+  sampleConstructor() {
+    // this = {};
+    this.variable1 = 'value1';
+    this.variable2 = 'value2';
+    this.method1   = function() { ... }
+    // return this;
+  }
+
+
+
+
+When a function is used with the new keyword, it is always going to return an
+object. However, it does not usually have an explicit return statement given
+by the programmer; the 'new' keyword adds the return statement implicitly.
+
+You can add an explicit return statement to the constructor function. Know that
+the function, when called with the new keyword, will always return an object.
+So:
+* If the explicit return statement is empty or returns any primitive, it is
+  ignored and 'new' does its job normally.
+* If the explicit return statement returns an object, that object is returned
+  as the new object from the constructor function, and all other 'this'
+  statements outside that return object are ignored.
+
+
+Finally, when running a function, you can check whether the function is being
+called with the 'new' keyword or not. This tells the function whether it is
+being used as a constructor function or a normal function, and it can be made to
+behave conditionally.
+
+Some libraries use this behavior to create functions with a flexible syntax, so
+that they can be used both as constructors to create objects, or just as normal
+functions that return some primitive value.

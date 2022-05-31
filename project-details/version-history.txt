@@ -1,4 +1,11 @@
 
+0.0.12:
+  - Constructor functions
+  - Constructor functions with return statements
+  - Self-aware constructor functions
+  - Flexible constructor functions
+
+
 0.0.11:
   - Array methods (map, filter, reduce)
 
