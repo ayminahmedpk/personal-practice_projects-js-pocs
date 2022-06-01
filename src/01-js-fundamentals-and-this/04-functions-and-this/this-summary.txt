@@ -1,0 +1,60 @@
+
+
+'this':
+
+There are four ways the 'this' keyword is determined (in priority order):
+
+	- New binding      (constructor)
+	- Explicit binding (function.call, function.apply, function.bind)
+	- Implicit binding (dot notation)
+	- Default binding  (outer dynamic environment, global object)
+
+
+  New binding:
+
+    This is when an object is instantiated using a constructor function. The
+    'this' keyword will point to this new object. This does not need testing.
+
+
+  Explicit binding:
+
+    functionName.call(objectName);
+    functionName.apply(objectName);
+    boundFunction = functionName.bind(objectName);
+
+    The difference between 'call' and 'apply' is syntactical, in terms of how
+    arguments can be passed to the function being utilized.
+
+
+  Implicit binding (dot notation):
+
+    This refers to the dot notation. A function called in this way will use the
+    reference of the object in the dot notation as 'this'.
+
+    Note: Dot notation includes the objectName, the '.', the functionName and
+    also the parentheses '()'. In other words, it is a function execution. If
+    you simply pass it around as
+      const copyFunc = objectName.functionName;
+    then that is not the dot notation; you simply pass the source code of the
+    function as text, without any reference to what 'this' should point to.
+
+    The same issue happens when you pass the function reference to a function
+    that runs from some other context, eg:
+      setTimeout(objectName.functionName, 1000);
+    However, if you wrap an actual dot notation call in a function and pass that
+    by reference, you can still make it work, eg:
+      setTimeout(() => {objectName.functionName()}, 1000);
+
+
+  Default binding:
+    When none of the above are employed, then 'this' points to the global
+    object.
+
+
+Arrow functions don't have this. So they take the value of 'this' from their
+lexical enviroment. Which is why arrow functions behave like methods in other
+programming languages - their 'this' always refers to their class/instance.
+
+Functions created with 'new Function' (passing the function as text) are always
+assigned the global scope, regardless of what lexical environment they were
+defined in.

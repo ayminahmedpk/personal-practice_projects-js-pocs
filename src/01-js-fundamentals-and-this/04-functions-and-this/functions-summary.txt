@@ -1,0 +1,25 @@
+Regarding 'new', don't get confused between
+- new myConstructorFunction (for creating objects from a constructor function)
+- new Function (for creating new functions from text)
+
+
+Function variables vs parameters of the function-object:
+
+  Functions can be treated like objects (they are).
+
+  So we can create variables inside function logic, using let and const, but we
+  can also assign properties to the function object itself.
+  
+  The function logic can be made to interact with the function's parameters
+  itself, and this can be used to track function meta - eg: how many times the
+  function was called, etc.
+
+
+NFE:
+
+  Sometimes, you may want a function to be able to reference itself. This is
+  when you think you may change the name of the function or copy it or assign
+  it to another variable, but you still want that function to be able to
+  reference itself. You can do this by using a Named Function Expression (NFE).
+  Know that this technique requires us to use a function expression - normal
+  function declarations do not have access to this feature.

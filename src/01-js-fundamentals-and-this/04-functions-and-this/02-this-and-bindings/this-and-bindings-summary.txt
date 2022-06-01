@@ -1,0 +1,41 @@
+Techniques to test:
+
+* dot notation (and changing the object)
+* function.call
+* function.apply
+* function.bind
+* default (global object)
+
+
+Types of binding (in order of priority):
+
+
+  * 'new' binding (constructor)
+      This is about instantiating a new object from a constructor.
+      The 'this' keyword will point to the new object.
+      
+      Constructor instantiation not included in this test.
+
+      (Dont confuse 'new' binding with 'new Function' binding. 'new Function'
+       functions are always scoped - which is actually similar to default binding.)
+
+
+  * Explicit binding:
+      functionName.call(objectName);
+      functionName.apply(objectName);
+      boundFunction = functionName.bind(objectName);
+
+      The difference between 'call' and 'apply' is syntactical, in terms of how
+      arguments can be passed to the function being utilized.
+
+  
+  * Implicit binding:
+      Basically, the dot notation. Includes object name, ., function name and
+      the closing parentheses. Then, the function is called in the object's
+      context. Just saying objectName.functionName will copy (or print) the
+      function without objectName's context.
+
+
+  * Default binding:
+      If none of the above apply, then the global object is used as the context
+      (the object 'this' points to).

@@ -1,4 +1,9 @@
 
+0.0.13:
+  - 'this'
+  - Functions
+
+
 0.0.12:
   - Constructor functions
   - Constructor functions with return statements
