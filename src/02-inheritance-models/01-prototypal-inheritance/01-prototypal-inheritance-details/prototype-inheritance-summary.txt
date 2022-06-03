@@ -1,0 +1,28 @@
+
+
+Prototype based inheritance is based on object referencing.
+
+An object 'A' has a prototype reference to object 'B', which itself has a
+prototype reference to object 'C'.
+
+When JS looks for a property or method inside A and can't find it, it will go
+up the prototype chain and look for it in B, and if it can't find it there,
+it will look up the chain into C, and so on - until it finds a 'null' prototype
+reference.
+
+JS' unbound this allows a method called as A.methodName(); , but not present in
+A, and found in B after prototype chain lookup, to be executed from the context
+of A ('this' in the method pointing to 'A') due to that dot notation it was
+called with.
+
+Note that B's properties are not copied into A, A simply references B and B's
+properties' actual values at call time are used. So if you edit B's properties
+after making A prototypically inherit from B, JS after a prototype chain lookup
+will use B's latest values regardless.
+
+
+You can set and change an object's prototype in many ways.
+
+1. Setting the constructor function's 'prototype' property
+2. The objectName.__proto__    accessor.
+3. The [Object.create / getPrototypeOf / setPrototypeOf ]   methods.

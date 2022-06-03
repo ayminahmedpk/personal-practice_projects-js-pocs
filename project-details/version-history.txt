@@ -1,4 +1,8 @@
 
+0.0.14:
+  - Prototypal inheritance
+
+
 0.0.13:
   - 'this'
   - Functions
