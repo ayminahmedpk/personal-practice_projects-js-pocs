@@ -1,0 +1,5 @@
+
+
+Using the .__proto__ accessor to set or get the [[Prototype]] on an object.
+
+Very intuitive and simple.

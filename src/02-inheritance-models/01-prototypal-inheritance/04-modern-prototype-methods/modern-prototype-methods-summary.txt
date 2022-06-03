@@ -1,0 +1,7 @@
+
+
+Object.create(proto, descriptors)
+Object.setPrototypeOf(object, proto)
+Object.getPrototypeOf(object)
+
+The newer ways of setting and getting prototypes.

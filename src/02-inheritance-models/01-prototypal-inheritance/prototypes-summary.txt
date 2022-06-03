@@ -1,0 +1,25 @@
+
+
+Prototypal inheritance is a simple concept, though not very short.
+
+It is explained in its own folder.
+
+
+
+There are 3 main ways of configuring the prototype chain:
+  
+  1. The constructor / .prototype property method - the most complex method, and
+     also the oldest - onces the only method to actually do so.
+  
+  2. The .__proto__ accessor - fairly simple and intuitive
+
+  3. The 3 new methods (Object.create, Object.getPrototypeOf, Object.setPrototypeOf)
+
+Each of these are explained and walked through in their own folder.
+
+
+
+What should be noted is, that due to JS' own optimizations, it is highly
+inefficient to change an object's prototype on the fly. It is much better and
+faster to set it at creation (using Object.create and, I assume, the .prototype
+property on the constructor method).

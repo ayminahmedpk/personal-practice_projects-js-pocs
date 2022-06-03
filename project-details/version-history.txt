@@ -1,4 +1,9 @@
 
+
+0.0.15:
+  - Prototypal inheritance with summaries
+
+
 0.0.14:
   - Prototypal inheritance
 

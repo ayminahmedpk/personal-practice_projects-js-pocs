@@ -1,0 +1,36 @@
+
+
+Every function has a property '.prototype' assigned to it by default.
+
+The default value of this property is just an object with a single value
+"constructor" that points to the function itself. You can set a custom value for
+the .prototype property, but it must either be an object or null for it to work.
+
+When the function is called as a constructor (with the 'new' keyword), then the
+value of the new object's [[Prototype]] depends on this function's .prototype
+property.
+
+1. Default value
+  If the function has the default value of { constructor: functionName }, where
+  functionName is the name of the constructor function itself, then the new
+  Object's [[Prototype]] property will have this constructor property, and will
+  point to the native Object object as its prototype.
+
+2. Custom value
+  If you set the reference to an object instance as the custom value for the
+  property, eg:
+    constructorFunction.prototype = complexObject;
+  then the new object's [[Prototype]] property will point to this complexObject.
+
+
+Originally, this was the standard and only way how prototypes could be set and
+prototype chains could be established.
+
+Note that by adding a custom value, you will most likely lose the 'constructor'
+property inside the resulting objects [[Prototype]] property. While there are
+workarounds to forcing the property through, none of them are clean, intuitive
+or perfect implementation.
+
+Having said that, the 'constructor' property is only a convenience for a
+prototype model. It is much more important in classes, but they handle the
+property automatically anyway.
