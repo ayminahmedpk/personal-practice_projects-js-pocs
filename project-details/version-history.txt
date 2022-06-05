@@ -1,5 +1,9 @@
 
 
+0.0.16:
+  - Class basic syntax done
+  
+
 0.0.15:
   - Prototypal inheritance with summaries
 
