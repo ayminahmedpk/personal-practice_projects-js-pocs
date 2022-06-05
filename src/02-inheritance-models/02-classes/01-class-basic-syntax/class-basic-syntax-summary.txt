@@ -1,0 +1,70 @@
+Class syntax is fairly straightforward.
+
+Classes can have:
+
+  A constructor function (created by default if not provided)
+  Methods
+  Static Methods and Properties
+  Class Fields
+
+Class functions can be bound to the object they are instantiated with (look
+below for more explanation).
+
+Classes can be created and assigned as part of an expression (like functions),
+and like named functions, anonymous classes can also be given a name on the
+right side of '=' for reliable self-referential purposes.
+
+
+Implementation undeaneath the class syntax (Eg, for a class named Student):
+
+  Underneath the class syntax, JS uses prototypes to implement the class strucure.
+  Here are the 4 major implementation steps that you will recognize from
+  prototypes:
+
+    1. A constructor function named Student is created. The body of this
+      constructor function (and its param structure) is the same as the
+      'constructor' function you provided in the class (or the default that
+      returns an empty object if you didn't put any constructor in the class).
+
+    2. Methods in the class become properties of the constructor function's
+      prototype property, eg: method sayHi() in student will become
+      Student.prototype.sayHi .
+
+    3. Static methods and properties in the Student class will become actual
+      properties of the Student function (just like .prototype), eg: static
+      method getInstancesNumber will become Student.getInstancesNumber.
+
+    4. Class fields (items assigned with '=' outside the constructor) will
+      directly be added as properties to instantiated objects.
+
+
+  Besides these, there are 3 other interesting steps JS does which differentiate
+  the class syntax from us just using prototypes and following the steps above:
+
+    1. (Can be replicated) JS sets all the methods that are properties of
+      Student.prototype as non-enumerable
+
+    2. (Non-replicable in code ) JS sets a hidden property, [[IsClassConstructor]]
+      on Student, and sets its value to true.
+
+    3. (Probably non-replicable in code) Classes always 'use-strict'.
+
+
+
+Class methods can lose this. There are 3 ways to avoid this:
+  
+  1. Bind class methods in the class constructor, eg:
+      class Student {
+        constructor {
+          this.sayHi = this.sayHi.bind(this);
+        }
+        sayHi() = {...};
+      }
+
+  2. Assign arrow functions as class fields. Arrow functions don't have 'this',
+     so their this will always be defined lexically, meaning referring to the
+     object (or class if static), regardless of their execution context.
+
+  3. Wrap a call within an anonymous function so that you can use the entire
+     dot notation, including parantheses, to call the method from the right
+     object's context.

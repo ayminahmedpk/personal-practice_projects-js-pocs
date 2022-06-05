@@ -1,3 +1,6 @@
+// Prototype is object inheriting from object,
+// And classes are constructor functions inheriting from constructor funcitons
+// Do NOT confuse or mix them.
 
 
 // Belongs in prototype-inheritance-model
@@ -126,6 +129,35 @@ console.log("Realistically and practically, it's not a good idea to delve into\
  this rabbit hole any further. Prototypes are history now. Class handles all\
  these matters for us implicitly. And now, we do have a good idea of what is\
  going on under the scenes.")
+
+
+
+// Prototype is object inheriting from object,
+// And classes are constructor functions inheriting from constructor funcitons
+// Do NOT confuse or mix them.
+
+// This here, next 15 lines, are constructors inheriting from constructors
+// This is classes. Look over this.
+// Copy this into the classes file.
+console.log('\n\n\n\n\n\n');
+
+function GrandParent() {this.name = 'Grandpa'}
+GrandParent.prototype.sayHi = function() {
+  console.log(`Hi! I'm ${this.name}.`);
+}
+
+function Parent() {this.name = 'Dad'};
+Parent.prototype.__proto__ = GrandParent.prototype;
+
+function Child() {this.name = 'Son'};
+Child.prototype.__proto__ = Parent.prototype;
+
+const CInstance = new Child();
+CInstance.sayHi();
+
+
+
+// ** Back to prototypes: ** 
 
 // Works, retains a constructor property property in [[Prototype]] which points
 // to LionConstructor.
