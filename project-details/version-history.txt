@@ -1,5 +1,9 @@
 
 
+0.0.18:
+  - Class inheritance bug 1 - Overriding Class Fields
+
+
 0.0.17:
   - Class basic inheritance done
   - Addition of new binding for 'this'to previous notes ([[HomeObject]])

@@ -1,0 +1,17 @@
+
+
+When inheriting classes, the initialization of class fields from the Parent and
+Child class is in the following order:
+
+1. Parent class fields initialized
+2. Parent constructor initialized
+3. super() call made
+4. Child class fields initialized
+
+Therefore, if you have overridden class fields in a child class, but the parent
+constructor uses the Parent's class field of the same name, then the child
+constructor will unwittingly end up using the Parent's class field value.
+
+This is becuase, at the time of the super() call, the Child class fiels have not
+yet been initialized, but the parent's class fields have been initialized and
+exist in memory. Therefore, they will be the ones that are used.
