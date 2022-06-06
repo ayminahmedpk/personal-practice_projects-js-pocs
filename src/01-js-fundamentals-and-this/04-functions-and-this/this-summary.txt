@@ -51,6 +51,11 @@ There are four ways the 'this' keyword is determined (in priority order):
     object.
 
 
+  EXTRA: [[HomeObject]] binding: - Only affects class / object methods (and only
+  methods, not function properties) that use the keyword 'super'. Priority
+  compared to other binding techniques is unknown.
+
+
 Arrow functions don't have this. So they take the value of 'this' from their
 lexical enviroment. Which is why arrow functions behave like methods in other
 programming languages - their 'this' always refers to their class/instance.

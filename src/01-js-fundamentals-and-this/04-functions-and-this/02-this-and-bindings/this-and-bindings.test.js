@@ -43,6 +43,9 @@ test(`Call without implicit, explicit or constructor binding points to global ob
   expect(freeGreet()).toBe('Hi! My name is undefined');
 })
 
+test("(No test) - [[HomeObject]] bindings exist, only affect class/object\
+ methods using 'super'. Priority unknown.", () => {})
+
 // Global object in JEST is set in package.json,
 // when it has a name variable set, then that variable is used; eg - if 'Mike',
 // test(`Call without implicit, explicit or constructor binding points to global object`, () => {

@@ -1,0 +1,54 @@
+
+
+Call inheritance syntax is fairly simple.
+
+Implementation is based on prototypes.
+
+As we know, classes are  translated to:
+  1. A constructor function
+  2. Methods as properties of constructor function's 'prototype' property
+  3. Static items as additional properties of constructor function
+
+
+So class inheritance is translated to:
+  1. (Inheriting normal methods) A constructor function whose prototype property
+     prototypically inherits from the parent constructor's prototype property
+     (inheriting normal methods), eg:
+       ChildConstructor.prototype.__proto__ = ParentConstructor.prototype;
+
+  2. (Inheriting static methods and properties) A constructor function which
+     itself prototypically inheritsa from the parent constructor (as static
+     items become properties of constructor functions), eg:
+       ChildConstructor.__proto__ = ParentConstructor;
+
+  3. A child constructor body which MUST call super() before rererencing 'this'.
+     If no constructor is provided, a default constructor is created which
+     simply calls super() with any given args, eg:
+       ChildClass {
+         constructor(...args) {
+           super(...args);
+         }
+       }
+     
+     This is because, due to [[ConstructorKind]]: "derived", JS expects the
+     parent constructor to be called and return the primary new object which
+     this child constructor will then go on to work with.
+
+  4. Note - Class fields are also inherited, and are added directly to instances
+     of the child class, rather than placing them in somewhere in the
+     constructor function's properties.
+
+
+Internally, JS does more than what we can replicate by simply doing the above
+steps, and that includes:
+
+  1. Setting the property [[ConstructorKind]]: "derived" on the constructor
+     function created for a class extending another class.
+
+  2. Adding [[HomeObject]] to avoid self-referential loops when accessing
+     methods from ancestors in the inheritance chain. (see bug 2)
+
+
+As hinted, there are 2 bugs to be vary of with inheritance - the first relates
+to constructors and overridden class fields, and the second relates to the
+[[HomeObject]] property and bindings on methods that use the 'super' keyword.
