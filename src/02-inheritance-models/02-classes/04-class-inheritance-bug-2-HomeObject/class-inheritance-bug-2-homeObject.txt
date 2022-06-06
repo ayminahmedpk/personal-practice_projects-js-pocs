@@ -1,0 +1,54 @@
+
+Scenario 1:
+
+  This causes an infinit loop.
+
+  Tracing the stack:
+  
+    Stack 1: In this call, child references parent's method 'greet' with child's
+    own context bounded to the call. Control transfers to parent's greet().
+
+    Stack 2: parent's 'greet' is executed from the child's context. JS looks at
+    child's prototype, finds it to be 'parent', and control transfers to
+    parent's greet().
+    
+    Stack 3: Stack 2's steps repeat itself.
+
+    Stack n: Stack 2' steps have taken place n-1 times. We are in an infinite
+    loop.
+
+  The reason for this infinite loop is that we expected child's greed to
+  reference parent's greet, and parent's greet to reference grandParent's greet.
+  
+  However, since the call was made with 'this' bound to child's context, when
+  parent tried to use this.__proto__.greet.call(this), it substituted the
+  child's reference in place of this due to the binding. Hence, it practically
+  repeated step 1.
+
+  And this is how we entered the infinite loop. Parent's greet simply keeps
+  invoking a call to itself through the child's greet.
+
+
+
+Scenario 2:
+
+  The infinite loop is avoided due to JS setting and using the hidden property
+  [[HomeObject]].
+
+  [[HomeObject]] stores a reference to the exact object/class a function belongs
+  to. That way, calls are not bound to 'this', but actually to [[HomeObject]].
+
+  This allows us to make calls to the parent2 cleanly using 'super'. And it
+  allows JS to cleanly differentiate between child2's call (which home object
+  says was initiated by the child2) and the parent2 call (which home object says
+  was initiated by parent2).
+
+  Essentially, this is another way to bind 'this'.
+
+  And since JS applies the [[HomeObject]] to every class/object method, you
+  would think that would break JS code and all the 'free' methods with unbound
+  this.
+
+  However, JS only uses [[HomeObject]] when a method uses the 'super' keyword.
+  If it doesn't, the [[HomeObject]] property is invisible as far as JS is
+  concerned.

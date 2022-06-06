@@ -1,4 +1,8 @@
 
+0.0.19:
+  - Class inheritance bug 2 - [[HomeObject]]+super to avoid infinite loops with
+    this.__proto__.methodName.call(this);  .
+
 
 0.0.18:
   - Class inheritance bug 1 - Overriding Class Fields
