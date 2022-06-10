@@ -1,4 +1,9 @@
 
+
+0.0.20:
+  - Promises (basic).
+
+
 0.0.19:
   - Class inheritance bug 2 - [[HomeObject]]+super to avoid infinite loops with
     this.__proto__.methodName.call(this);  .

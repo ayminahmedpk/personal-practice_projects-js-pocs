@@ -1,0 +1,49 @@
+
+
+Typical scenario for promises:
+
+  * 'new Promise()' expects a function, which is the executor function.
+    This function will have the 'resolve' and 'reject' keywords passed in as
+    arguments. Also, this function will call the resolve/reject keywords and
+    provide them with one, single resolve/reject result.
+
+  * '.then' expects two arguments, both of them callbacks; the first is the
+    resolve callback, the second is the reject callback. Depending on the state
+    of the promise '.then' is called on, either one of these callbacks will be
+    executed, and will be passed the relevant result (resolve or reject) from
+    the promise.
+
+    Hence note how different they are. new Promise takes only one argument; the
+    executor function. That executor function itself takes 1-2 arguments which
+    are usually just keywords. But then can take 1-2 arguments directly, which
+    are the resolve/reject callbacks themselves (and they get the resolve or
+    reject values implicitly).
+
+    Note also that the .then statement will always return a promise, making it
+    very easy to chain .then s.
+
+
+
+In reality however, both these statements are very vast and flexible and have a
+ton of additional features and specialties.
+
+For instance:
+
+  * 'new Promise()' 's executor function can take an actual function for the
+    resolve argument instead of just the keyword, and if that function returns a
+    promise, then that promise gets dynamically inserted into the promise chain.
+
+  * We know that .then will always return a promise. So if the code inside .then
+    returns a value, then .then actually returns a resolved promise, with the
+    return value as the resolved value. If the code returned nothing, .then
+    returns a resolved promise with 'undefined' as the resolved result. But if
+    the code in .then itself returns a promise, then the returned promise from
+    .then depends on the code's promise' state and result value. There is still
+    a lot more depth and caveats to .then.
+
+
+To that end, keep these two very important links handy, and keep reading them
+regularly:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
