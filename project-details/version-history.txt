@@ -1,8 +1,12 @@
 
 
+0.0.22:
+  - Promise .then
+
+
 0.0.21:
   - Redoing promises
-  - Promises constructor
+  - new Promise() constructor
 
 
 0.0.20:

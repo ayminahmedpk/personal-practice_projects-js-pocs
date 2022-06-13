@@ -1,0 +1,57 @@
+
+' Promise.prototype.then() '
+(because it is actually a method call on an individual promise object)
+
+
+'then' is used to add a callback to a promise, potentially behaving
+conditionally based on the promises' result. Used as follows:
+
+	somePromise.then()
+
+The .then() method call accepts up to two parameters, the first being a resolve
+callback function (to call if somePromse resolves), and the second being the
+reject callback function (to call if somePromise rejects). Both, the resolve
+and reject function implicitly take in one argument, which is the resolve or
+reject value of somePromise respectively. You can name this value whatever you
+want.
+
+If you pass a statement instead of passing a function for the resolve function
+or reject function, JS interprets it as putting the resolve/reject value into
+that statement.
+
+  Eg: somePromise.then(alert);  This will process some promise, and then get its
+  resolve value, and call alert with that resolve value as alert(resolveValue).
+
+  A similar scenario takes place with reject, where a call to something gets the
+  error object passed to it.
+
+
+
+
+The return value of .then will always be a promise, but its details vary based
+on what the .then's used handler (wheter the resolve function or reject
+function) return. That is what will decide the nature of .then's returned
+promise.
+
+For instance, if the resolve function:
+
+	1. Returns a value (primitive, object, array, etc), the promise returned by
+	   .then will have the 'resolved' state, and the resolve function's return
+	   value as its resolve value.
+
+	2. Returns nothing, the promise returned by .then has a 'resolved' state with
+	   an 'undefined' resolve value.
+
+	3. Throws an error, the promise returned by .then has a 'rejected' state, with
+	   the thrown error object as its reject value.
+
+	4. Returns an already fulfilled promise, .then will return a promise which
+     mirrors the returned promise's resolved state as well as value.
+
+ 	5. Returns an already rejected promise, .then will return a promise which
+     mirrors the rejected promise's rejected state as well as value.
+
+	6. Returns a pending promise, the promise returned by .then will mirror the
+     pending promise's state, and when the promise transitions to being
+     fulfilled, so will the promise returned by .then. Intuitively, it will then
+     reflect the fulfilled promise's state and value.

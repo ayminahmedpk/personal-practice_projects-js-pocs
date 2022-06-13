@@ -1,0 +1,23 @@
+
+A more comprehensive syntax description:
+
+	new Promise( (resolveFunction, rejectFunction) => {... // executor code } );
+
+
+The return value of the executor function is ignored. Only the calls to
+resolveFunction or rejectFunction matter (and only the first such call -
+subsequent ones are ignored).
+
+resolveFunction / rejectFunction are called from within the code when the
+executor has done its main intended asynchronous operation and has obtained its
+result. These functions can take in ONE value (expected to be the result).They
+will transition the promise to the resolved or rejected state respectively, and
+pass on the value they recieve.
+
+
+You can pass a promise as the argument to the resolve function when you call it,
+and that promise will be dynamically added to the promise chain.
+
+If an error is thrown by the executor code, the promise is considered to be
+rejected. Conversely, if a promise is rejected but the rejection is not handled,
+JS considers and treats that as an error.
