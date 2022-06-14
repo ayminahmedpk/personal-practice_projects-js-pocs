@@ -1,5 +1,9 @@
 
 
+0.0.23:
+  -Promise API (static methods)
+
+
 0.0.22:
   - Promise .then
 
