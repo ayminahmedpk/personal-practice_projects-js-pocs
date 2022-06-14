@@ -1,0 +1,30 @@
+
+
+The await keyword can be used inside an async function
+(Though it can also be used at the top level of an ES6 module)
+
+What it does is, pauses the execution until a promise is settled, and returns
+the resultant value from it.
+
+Eg:
+
+const myAsyncFunction = async () => {
+	const result = await someFunctionReturningPromise();
+	return result;
+}
+
+The flow of the myAsyncFunction will be paused at 'const result =' until the
+promise on the right isn't fully settled, and its value transferred over to
+result.
+
+
+
+Note - the pause is only inside myAsyncFunction. The code outside proceeds
+as normal (synchronous). Which means, async functions are most likely placed
+into the microtask queue.
+
+
+
+An inconvenience of await is that it should be explicitly enclosed in a
+try catch block, unlike promises where you can simply attach a catch
+handler at the end of a long chain.

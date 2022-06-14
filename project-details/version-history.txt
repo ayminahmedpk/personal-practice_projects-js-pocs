@@ -1,7 +1,11 @@
 
 
+0.0.24:
+  - Async / Await
+
+
 0.0.23:
-  -Promise API (static methods)
+  - Promise API (static methods)
 
 
 0.0.22:
